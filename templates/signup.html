@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% from "macro.html" import render_field %}
+
+<html>
+    <head>
+        <title> W&Notes </title>
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='signup.css') }}">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='logo2.jpg') }}" type="image/x-icon" />
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    </head>
+
+    <body>
+        <div id="control">
+
+            <header>
+                    <h1><a href="{{ url_for('home') }}">W&Notes</a></h1>
+                    <nav>
+                        <ul>
+                            <li><a href="{{ url_for('home') }}">Home</a></li>                           
+                            <li><a href="{{ url_for('log_in') }}">Log in</a></li>
+                            <li><a href="{{ url_for('sign_up') }}">Sign up</a></li>
+                        </ul>
+                    </nav>
+            </header>
+            <div id="body">
+
+                <div class="signup">
+                    <h2>Sign up </h2>
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            <p style="color: brown; margin-left: 10%;">{{ messages[0] }} , Go to <a href="{{ url_for('log_in') }}"> log in </a> </p>
+
+                        {% endif %}
+                    {%endwith%}
+
+                    <form method="POST" action=" {{url_for('sign_up')}}">
+                        {{ form.csrf_token}}
+                        {{ render_field(form.email) }}
+                        {{ render_field(form.name) }}
+                        {{ render_field(form.password) }}
+                        {{ render_field(form.confirm) }}
+
+
+                        {{ form.submit }}
+                    </form>
+
+                </div>
+
+            </div>
+
+            <div class="both"></div>
+            <footer>
+                    <p>Copyright 2020 &copy; All right reserved </p>
+            </footer>
+
+        </div>
+
+    </body>
+
+</html> 

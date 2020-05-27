@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> W&Notes </title>
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='logo2.jpg') }}" type="image/x-icon" />
+
+        <meta charset="UTF-8">
+        <meta name="description" content="Free Web to write notes">
+        <meta name="keywords" content="write, notes, mohamed kholeef, W&Notes">
+        <meta name="author" content="Mohamed kholeef">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    </head>
+
+    <body>
+        <div id="control">
+
+            <header>
+                    <h1><a href="{{ url_for('home') }}">W&Notes</a></h1>
+                    <nav>
+                        <ul>
+                            <li><a href="{{ url_for('home') }}">Home</a></li>
+                            
+                            {% if current_user.is_authenticated %}
+                                <li><a href="{{ url_for('user_bag', user_id=user.id) }}">My bag</a></li>
+                                <li><a href="{{ url_for('user_account', user_id=user.id) }}">My account</a></li> 
+                                <li><a href="{{ url_for('logout') }}">Log out</a></li>
+                            {% else %}
+                                <li><a href="{{ url_for('log_in') }}">Log in</a></li>
+                                <li><a href="{{ url_for('sign_up') }}">Sign up</a></li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+            </header>
+            <div id="body">
+                <img src="{{ url_for('static', filename='note.jpg') }}">
+                <article>
+                    <h1>Hi There!</h1><br>
+                    <p>This website will help you record your notes</p><br> 
+                    <p>in a wonderful way ..let's start now! Happy trip.</p>
+                </article>
+            </div>
+            <div class="both">
+
+            </div>
+            <footer>
+                    <p>Copyright 2020 &copy; All right reserved </p>
+            </footer>
+
+        </div>
+
+    </body>
+
+</html> 

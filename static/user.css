@@ -1,0 +1,159 @@
+header
+{
+    height: 80px;
+    background-color: cadetblue;
+}
+header h1 a
+{
+    text-decoration: none;
+    color: rgb(211, 226, 240);
+}
+header h1
+{
+    font-size: 40px;
+    display: inline-block;
+    padding: 12px;
+    margin: 10px;
+    margin-top: 5px;
+}
+
+nav
+{
+    float: right;
+}
+nav ul
+{
+    /* display: inline; */
+    list-style-type: none;
+    padding: 10px;
+}
+nav ul li
+{
+    display: inline;
+    margin: 10px;
+    font-size: 23px;
+   
+}
+nav ul li:hover
+{
+    background-color: rgb(143, 143, 143);
+}
+
+nav ul li a
+{
+    text-decoration: none;
+    color: rgb(16, 227, 255);
+
+}
+#body
+{
+    background-color: rgb(247, 247, 245);
+    margin-top: 20px;
+    height: 510px;
+    padding: 10px;
+
+}
+#body h2
+{
+    border: 3px solid gold;
+}
+
+#post_note
+{
+    height: 350px;
+    width: 380px;
+    margin-top: 20px;
+    margin-left: 36%;
+    background-color: rgb(241, 245, 190);
+    border: 3px solid black;
+    padding: 10px;
+}
+#post_note h3
+{
+    display: inline;
+}
+#post_note form .text
+{
+    display: block;
+    border: 2px solid gray;
+    margin-top: 3px;
+    margin-left: 10%;
+    width: 300px;
+    height: 250px;
+    padding: 5px;
+    font-size: 22px;
+    line-height: 27px;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+#post_note form input
+{
+    margin-top: 15px;
+    margin-left: 90px;
+    height: 33px;
+    
+
+}
+#post_note form :last-child
+{
+    margin-top: 12px; 
+    height: 33px;
+    background-color: royalblue;
+    border-radius: 20px;
+    width:90px;
+
+}
+#body .notes
+{
+    margin-top: 20px;
+    background-color: rgb(255, 255, 255);
+    border-top:8px solid black ;
+    
+}
+#body .notes h3
+{
+    margin-left: 42%;
+    font-size: 40px;
+    color: gold;
+    background-color: gray;
+    width: 200px;
+}
+#body .notes a #note
+{
+    padding: 7px;
+    height: 33px;
+    border: 3px solid green;
+    margin: 20px;
+    font-size: 20px;
+}
+#body .notes a
+{
+    text-decoration: none;
+
+}
+#body .notes #note a p
+{
+    margin-bottom: 10px;
+}
+
+
+
+ 
+
+.both
+{
+    clear: both;
+}
+footer
+{
+    display: block;
+    clear: both;
+    background-color: cadetblue;
+    height: 50px;
+}
+footer p
+{
+    display: inline-block;
+    margin-left: 45%;
+    margin-top: 17px;
+}

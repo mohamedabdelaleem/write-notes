@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> W&Notes </title>
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='delete_note.css') }}">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='logo2.jpg') }}" type="image/x-icon" />
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    </head>
+
+    <body>
+        <div id="control">
+
+            <header>
+                    <h1><a href="{{ url_for('home') }}">W&Notes</a></h1>
+                    <nav>
+                        <ul>
+                            <li><a href="{{ url_for('home') }}">Home</a></li>                           
+                            <li><a href="{{ url_for('user_bag', user_id=user.id) }}">My bag</a></li>
+                            <li><a href="{{ url_for('user_account', user_id=user.id) }}">My account</a></li> 
+                            <li><a href="{{ url_for('logout') }}">Log out</a></li>
+                        </ul>
+                    </nav>
+            </header>
+            <div id="body">
+                <div class="information">
+                    <p style="color: {{note.color}};">{{note.information}}</p>
+
+                    <a href="{{url_for('note', user_id=user.id, note_id=note.id)}}">Cansel</a>
+
+                    <form method="POST" action="{{ url_for('delete__note', user_id=user.id, note_id=note.id) }}">
+                      <input type="submit" value="Delete">
+                    </form>
+
+                </div>
+
+                <div class="both"></div>
+                <footer>
+                        <p>Copyright 2020 &copy; All right reserved </p>
+                </footer>
+
+            </div>
+
+        </div>
+
+    </body>
+
+</html> 

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> W&Notes </title>
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='user.css') }}">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='logo2.jpg') }}" type="image/x-icon" />
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    </head>
+
+    <body>
+        <div id="control">
+
+            <header>
+                    <h1><a href="{{ url_for('home') }}">W&Notes</a></h1>
+                    <nav>
+                        <ul>
+                            <li><a href="{{ url_for('home') }}">Home</a></li>                           
+                            <li><a href="{{ url_for('user_bag', user_id=user.id) }}">My bag</a></li>
+                            <li><a href="{{ url_for('user_account', user_id=user.id) }}">My account</a></li> 
+                            <li><a href="{{ url_for('logout') }}">Log out</a></li>
+                        </ul>
+                    </nav>
+            </header>
+            <div id="body">
+                <h2>{{user.name}} </h2>
+                <div id="post_note">
+                    <h3>Write here:</h3>
+                    <form method="POST" action="{{ url_for('user_bag', user_id=user.id) }}">
+                        {{ form.csrf_token}}
+                        {{ form.information(class="text", placeholder='Write a note here ..') }}
+                        <input name="color" type="color" value="black">
+                        {{form.submit}}
+
+                    </form>
+
+                </div>
+                <div class="notes">
+
+                    <h3>Your notes </h3>
+
+                    {% for note in notes %}
+                        <a href="{{url_for('note', user_id=user.id, note_id=note.id)}}">
+                            <div style="color: {{note.color}};" id="note" >
+                                  {{note.information[0:100]}}...   
+                            </div>
+                        </a>
+                    {% endfor %}
+
+                </div>
+
+
+                <div class="both"></div>
+                <footer>
+                        <p>Copyright 2020 &copy; All right reserved </p>
+                </footer>
+            </div>
+
+        </div>
+
+    </body>
+
+</html> 

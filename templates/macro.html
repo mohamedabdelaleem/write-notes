@@ -1,0 +1,12 @@
+{% macro render_field(field) %}
+    {{field.label}}
+    {{field}} <br>
+    {% if field.errors %}
+
+        {%for error in field.errors %}
+            <p style="color: red; margin-left: 10%;">{{error}}</p>
+        {% endfor %}
+
+    {% endif %}
+
+{% endmacro %}
